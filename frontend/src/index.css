@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: oklch(1 0 0);
+  --color-foreground: oklch(0.20 0.02 263.44);
+  --color-card: oklch(1 0 0);
+  --color-card-foreground: oklch(0.20 0.02 263.44);
+  --color-popover: oklch(1 0 0);
+  --color-popover-foreground: oklch(0.20 0.02 263.44);
+  --color-primary: oklch(0.45 0.09 263.44);
+  --color-primary-foreground: oklch(0.99 0.01 263.44);
+  --color-secondary: oklch(0.97 0.01 263.44);
+  --color-secondary-foreground: oklch(0.45 0.09 263.44);
+  --color-muted: oklch(0.97 0.01 263.44);
+  --color-muted-foreground: oklch(0.63 0.02 263.44);
+  --color-accent: oklch(0.97 0.01 263.44);
+  --color-accent-foreground: oklch(0.45 0.09 263.44);
+  --color-destructive: oklch(0.69 0.22 14.25);
+  --color-destructive-foreground: oklch(0.99 0.01 263.44);
+  --color-border: oklch(0.93 0.01 263.44);
+  --color-input: oklch(0.93 0.01 263.44);
+  --color-ring: oklch(0.45 0.09 263.44);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.dark {
+  --color-background: oklch(0.20 0.02 263.44);
+  --color-foreground: oklch(0.99 0.01 263.44);
+  --color-card: oklch(0.20 0.02 263.44);
+  --color-card-foreground: oklch(0.99 0.01 263.44);
+  --color-popover: oklch(0.20 0.02 263.44);
+  --color-popover-foreground: oklch(0.99 0.01 263.44);
+  --color-primary: oklch(0.99 0.01 263.44);
+  --color-primary-foreground: oklch(0.45 0.09 263.44);
+  --color-secondary: oklch(0.29 0.03 263.44);
+  --color-secondary-foreground: oklch(0.99 0.01 263.44);
+  --color-muted: oklch(0.29 0.03 263.44);
+  --color-muted-foreground: oklch(0.72 0.02 263.44);
+  --color-accent: oklch(0.29 0.03 263.44);
+  --color-accent-foreground: oklch(0.99 0.01 263.44);
+  --color-destructive: oklch(0.51 0.19 14.25);
+  --color-destructive-foreground: oklch(0.99 0.01 263.44);
+  --color-border: oklch(0.29 0.03 263.44);
+  --color-input: oklch(0.29 0.03 263.44);
+  --color-ring: oklch(0.89 0.04 263.44);
+}
