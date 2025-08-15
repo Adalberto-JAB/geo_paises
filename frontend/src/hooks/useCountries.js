@@ -3,6 +3,10 @@ import axios from 'axios';
 import { useAuthContext } from './useAuthContext';
 import { toast } from 'react-toastify';
 
+// La URL base de la API se obtiene de las variables de entorno de Vite.
+// Si no está definida, se usa la URL local como respaldo.
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 export const useCountries = (page = 1, limit = 10) => {
   const [data, setData] = useState({ countries: [], page: 1, pages: 1 });
   const [isLoading, setIsLoading] = useState(true);
@@ -22,7 +26,8 @@ export const useCountries = (page = 1, limit = 10) => {
         },
         params: { page, limit },
       };
-      const { data } = await axios.get('http://localhost:5000/api/countries', config);
+      // Se usa la URL base para construir la ruta completa
+      const { data } = await axios.get(`${API_URL}/api/countries`, config);
       setData(data);
     } catch (err) {
       const message = err.response?.data?.message || err.message;
@@ -44,8 +49,8 @@ export const useCountries = (page = 1, limit = 10) => {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      await axios.delete(`http://localhost:5000/api/countries/${id}`, config);
-      // Refetch countries to update the list
+      // Se usa la URL base para construir la ruta completa
+      await axios.delete(`${API_URL}/api/countries/${id}`, config);
       fetchCountries(); 
       toast.success('Country deleted successfully!');
       return true;
@@ -64,8 +69,8 @@ export const useCountries = (page = 1, limit = 10) => {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      await axios.delete('http://localhost:5000/api/countries', config);
-      // Refetch countries to update the list
+      // Se usa la URL base para construir la ruta completa
+      await axios.delete(`${API_URL}/api/countries`, config);
       fetchCountries(); 
       toast.success('¡Todos los países eliminados con éxito!');
       return true;
