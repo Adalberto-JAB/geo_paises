@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useAuthContext } from './useAuthContext';
 import { toast } from 'react-toastify';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 export const useCountryDetails = (id) => {
   const [country, setCountry] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -22,7 +24,7 @@ export const useCountryDetails = (id) => {
             Authorization: `Bearer ${user.token}`,
           },
         };
-        const response = await axios.get(`http://localhost:5000/api/countries/${id}`, config);
+        const response = await axios.get(`${API_URL}/api/countries/${id}`, config);
         setCountry(response.data);
         setIsLoading(false);
       } catch (err) {
@@ -46,7 +48,7 @@ export const useCountryDetails = (id) => {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      const response = await axios.put(`http://localhost:5000/api/countries/${id}`, countryData, config);
+      const response = await axios.put(`${API_URL}/api/countries/${id}`, countryData, config);
       setCountry(response.data);
       toast.success('¡País actualizado con éxito!');
       setIsLoading(false);

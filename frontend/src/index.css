@@ -20,6 +20,10 @@
   --color-border: oklch(0.93 0.01 263.44);
   --color-input: oklch(0.93 0.01 263.44);
   --color-ring: oklch(0.45 0.09 263.44);
+  --color-verdeper: oklch(70% 0.15 145);
+  --color-rojoper: oklch(62% 0.18 27);
+  --color-amarilloper: oklch(85% 0.14 95);
+  --color-azulper: oklch(65% 0.15 250);
   --radius: 0.5rem;
 }
 
@@ -49,4 +53,8 @@
   --color-border: oklch(0.29 0.03 263.44);
   --color-input: oklch(0.29 0.03 263.44);
   --color-ring: oklch(0.89 0.04 263.44);
+  --color-verdeper: oklch(70% 0.15 145);
+  --color-rojoper: oklch(62% 0.18 27);
+  --color-amarilloper: oklch(85% 0.14 95);
+  --color-azulper: oklch(65% 0.15 250);
 }

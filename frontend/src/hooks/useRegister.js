@@ -3,6 +3,8 @@ import { useAuthContext } from './useAuthContext';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 export const useRegister = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -13,7 +15,7 @@ export const useRegister = () => {
     setError(null);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/users', { name, email, password, profilePictureUrl });
+      const response = await axios.post(`${API_URL}/api/users`, { name, email, password, profilePictureUrl });
       const json = response.data;
 
       localStorage.setItem('user', JSON.stringify(json));

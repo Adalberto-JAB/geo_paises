@@ -37,10 +37,10 @@ const ProfilePage = () => {
           Editar perfil
         </button>
         <button 
-          onClick={() => navigate(-1)} 
+          onClick={() => navigate('/')} 
           className="bg-secondary text-secondary-foreground font-bold py-2 px-4 rounded-md hover:bg-secondary/80"
         >
-          Volver
+          Salir
         </button>
       </div>
     </div>

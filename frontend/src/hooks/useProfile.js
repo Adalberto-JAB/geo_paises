@@ -3,6 +3,8 @@ import { useAuthContext } from './useAuthContext';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 export const useProfile = () => {
   const [profile, setProfile] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -22,7 +24,7 @@ export const useProfile = () => {
             Authorization: `Bearer ${user.token}`,
           },
         };
-        const response = await axios.get('http://localhost:5000/api/users/profile', config);
+        const response = await axios.get(`${API_URL}/api/users/profile`, config);
         setProfile(response.data);
         setIsLoading(false);
       } catch (err) {
@@ -46,7 +48,7 @@ export const useProfile = () => {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      const response = await axios.put('http://localhost:5000/api/users/profile', userData, config);
+      const response = await axios.put(`${API_URL}/api/users/profile`, userData, config);
       setProfile(response.data);
       localStorage.setItem('user', JSON.stringify(response.data)); // Update user in local storage
       toast.success('Profile updated successfully!');
@@ -70,7 +72,7 @@ export const useProfile = () => {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      await axios.delete('http://localhost:5000/api/users/profile', config);
+      await axios.delete(`${API_URL}/api/users/profile`, config);
       localStorage.removeItem('user'); // Remove user from local storage
       toast.success('¡Perfil eliminado con éxito!');
       setIsLoading(false);

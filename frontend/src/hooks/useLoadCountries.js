@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useAuthContext } from './useAuthContext';
 import { toast } from 'react-toastify';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
 export const useLoadCountries = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -20,7 +22,7 @@ export const useLoadCountries = () => {
         },
       };
       const response = await axios.post(
-        'http://localhost:5000/api/countries/load',
+        `${API_URL}/api/countries/load`,
         { filterType, filterValue },
         config
       );

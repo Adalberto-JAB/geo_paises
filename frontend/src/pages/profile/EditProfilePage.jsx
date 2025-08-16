@@ -32,16 +32,16 @@ const EditProfilePage = () => {
   };
 
   const handleDeleteAccount = () => {
-    const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--color-primary').trim();
-    const destructiveColor = getComputedStyle(document.documentElement).getPropertyValue('--color-destructive').trim();
+    const accentColor = getComputedStyle(document.documentElement).getPropertyValue('--color-azulper').trim();
+    const destructiveColor = getComputedStyle(document.documentElement).getPropertyValue('--color-rojoper').trim();
 
     Swal.fire({
       title: 'Estas seguro/a?',
       text: "No podrás revertir esto!",
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: primaryColor,
-      cancelButtonColor: destructiveColor,
+      confirmButtonColor: destructiveColor,
+      cancelButtonColor: accentColor,
       confirmButtonText: 'Sí, bórralo!',
       cancelButtonText: 'Cancelar'
     }).then(async (result) => {
